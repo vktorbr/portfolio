@@ -78,6 +78,8 @@ header{
 }
 .card{
     background-color: var(--color-rocket);
+    display: grid;
+    cursor: pointer;
 }
 .card_image-container img{
     width: 100%;
@@ -89,6 +91,7 @@ header{
 .card_info{
     display: grid;
     grid-template-columns: 1fr 1fr;
+    align-items: center;
 }
 .card_price{
     text-align: center;
@@ -134,4 +137,18 @@ header{
     width: 100%;
     position: absolute;
     top: 5%;
+}
+
+/*=== Featured ===*/
+.card_image-container.featured-wrapper{
+    position: relative;
+}
+.featured{
+    position: absolute;
+    background: #f7d85f;
+    color: #111;
+    padding: 2px 8px;
+    right: 5px;
+    border-radius: 16px;
+    top: -18px;
 }

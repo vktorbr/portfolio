@@ -1,4 +1,4 @@
-{% extends 'layout.html' %}
+{% extends 'layout.njk' %}
 
 {% block head %}
 <title>Portfolio | Vktor Mrtins</title>
@@ -12,81 +12,23 @@ rel="stylesheet">
     <h1>Aulas</h1>
 </div>
 <section class="cards">
-    <div class="card" id="1nVUfZg2dSA">
-        <div class="card_image-container">
-            <img src="https://img.youtube.com/vi/1nVUfZg2dSA/maxresdefault.jpg" alt="video aula">
+    {% for item in items %}
+    <div class="card" id="{{item.id}}">
+        <div class="card_image-container {{ 'featured-wrapper' if item.featured }}">
+            <img src="https://img.youtube.com/vi/{{item.id}}/maxresdefault.jpg" alt="Imagem de {{item.title}}">
+            {% if item.featured %}
+            <div class="featured">Featured</div>
+            {% endif %}
         </div>
         <div class="card_content">
-            <p>Como inicio meus apps com ReactJS? Next.js, TypeScript, ESLint e Styled Components | Code/Drops #50</p>
+            <p>{{item.title}}</p>
         </div>
         <div class="card_info">
-            <p>44 min</p>
-            <p class="card_price">Free</p>
+            <p>{{item.duration}}</p>
+            <p class="card_price">{{item.price}}</p>
         </div>
     </div>
-    <div class="card" id="bJVp_vlvMwQ">
-        <div class="card_image-container">
-            <img src="https://img.youtube.com/vi/bJVp_vlvMwQ/maxresdefault.jpg" alt="video aula">
-        </div>
-        <div class="card_content">
-            <p>Interface da Twitch.tv | UI Clone</p>
-        </div>
-        <div class="card_info">
-            <p>59 min</p>
-            <p class="card_price">Free</p>
-        </div>
-    </div>
-    <div class="card" id="De5np8phQxo">
-        <div class="card_image-container">
-            <img src="https://img.youtube.com/vi/De5np8phQxo/maxresdefault.jpg" alt="video aula">
-        </div>
-        <div class="card_content">
-            <p>Armazenando dados no Navegador com localStorage | Code/Drops #49
-            </p>
-        </div>
-        <div class="card_info">
-            <p>52 min</p>
-            <p class="card_price">Free</p>
-        </div>
-    </div>
-    <div class="card" id="HKE4ukzOz-U">
-        <div class="card_image-container">
-            <img src="https://img.youtube.com/vi/HKE4ukzOz-U/maxresdefault.jpg" alt="video aula">
-        </div>
-        <div class="card_content">
-            <p>Por que migramos para o Linux? Como testar apps iOS no Windows, GarageBand com RN? | #PR 15</p>
-        </div>
-        <div class="card_info">
-            <p>18 min</p>
-            <p class="card_price">Free</p>
-        </div>
-    </div>
-    <div class="card" id="oYk2A7t_x0o">
-        <div class="card_image-container">
-            <img src="https://img.youtube.com/vi/oYk2A7t_x0o/maxresdefault.jpg" alt="video aula">
-        </div>
-        <div class="card_content">
-            <p>Marcos Mathias, Business Analyst, Project Manager, Team Lead at IBM | Alumni #07
-            </p>
-        </div>
-        <div class="card_info">
-            <p>60 min</p>
-            <p class="card_price">Free</p>
-        </div>
-    </div>
-    <div class="card" id='34fiafm5gz4'>
-        <div class="card_image-container">
-            <img src="https://img.youtube.com/vi/34fiafm5gz4/maxresdefault.jpg" alt="video aula">
-        </div>
-        <div class="card_content">
-            <p>Inteligência Artificial, por onde começar?
-            </p>
-        </div>
-        <div class="card_info">
-            <p>62 min</p>
-            <p class="card_price">Free</p>
-        </div>
-    </div>
+    {% endfor %}
 </section>
 <div class="modal-overlay">
     <div class="modal">
